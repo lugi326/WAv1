@@ -277,11 +277,7 @@ const connectWhatsapp = async () => {
       }
     };
 
-    // Jadwalkan pemeriksaan setiap hari pada jam 19:00 WIB
-    cron.schedule('0 19 * * *', checkDeadlines, {
-      timezone: "Asia/Jakarta"
-    });
-
+  
   } catch (error) {
     console.error('Error saat menghubungkan ke WhatsApp:', error);
     logToFile('Error saat menghubungkan ke WhatsApp: ' + error.message);
