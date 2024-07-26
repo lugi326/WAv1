@@ -237,7 +237,7 @@ const connectWhatsapp = async () => {
       }
     };
 
-    cron.schedule('42 23 * * *', checkDeadlines, {
+    cron.schedule('30 18 * * *', checkDeadlines, {
       timezone: "Asia/Jakarta"
     }); // jadwal chek dedline setiap hari
     
