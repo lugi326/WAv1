@@ -114,7 +114,7 @@ const connectWhatsapp = async () => {
       } else if (connection === 'close') {
         console.log("WhatsApp Closed..");
         logToFile("WhatsApp Closed..");
-        
+        reconnect();
       } else if (connection === 'connecting') {
         console.log('WhatsApp Connecting');
         logToFile('WhatsApp Connecting');
@@ -244,6 +244,18 @@ const connectWhatsapp = async () => {
   } catch (error) {
     console.error("Error saat menghubungkan ke WhatsApp:", error);
     logToFile("Error saat menghubungkan ke WhatsApp: " + error.message);
+  }
+};
+// Fungsi reconnect
+const reconnect = () => {
+  if (reconnectAttempts < maxReconnectAttempts) {
+    reconnectAttempts++;
+    console.log(`Mencoba kembali (${reconnectAttempts}/${maxReconnectAttempts})...`);
+    logToFile(`Mencoba kembali (${reconnectAttempts}/${maxReconnectAttempts})...`);
+    setTimeout(connectWhatsapp, 5000);
+  } else {
+    console.log('Maksimal percobaan reconnect tercapai. Gagal menghubungkan kembali.');
+    logToFile('Maksimal percobaan reconnect tercapai. Gagal menghubungkan kembali.');
   }
 };
 // Mulai koneksi WhatsApp
