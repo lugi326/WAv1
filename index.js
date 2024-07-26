@@ -114,7 +114,7 @@ const connectWhatsapp = async () => {
       } else if (connection === 'close') {
         console.log("WhatsApp Closed..");
         logToFile("WhatsApp Closed..");
-        reconnect();
+        
       } else if (connection === 'connecting') {
         console.log('WhatsApp Connecting');
         logToFile('WhatsApp Connecting');
