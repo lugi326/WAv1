@@ -22,7 +22,7 @@ const decodeMessage = (message) => (typeof message === 'string' ? Buffer.from(me
 // Query Flowise AI API
 const query = async (data, sessionId) => {
   try {
-    const response = await fetch("https://flowisefrest.onrender.com/api/v1/prediction/e5d4a781-a3a5-4631-8cdd-3972b57bcba7", {
+    const response = await fetch("https://flowise-u0i5.onrender.com/api/v1/prediction/4a065cd2-9035-4600-950c-602cbb7ac4ba", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ ...data, overrideConfig: { sessionId } })
